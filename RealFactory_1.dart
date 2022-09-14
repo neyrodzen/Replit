@@ -1,8 +1,8 @@
 import 'AbstractFactory.dart';
 
 class RealFactory_1 implements AbstractFactory {
-  OneField createOneField() {
-    return RealOneField();
+  OneField createOneField(String name) {
+    return RealOneField(name);
   }
 
   TwoField createTwoField() {
@@ -11,13 +11,15 @@ class RealFactory_1 implements AbstractFactory {
 }
 
 class RealOneField implements OneField {
-  makeOne() {
-    print('make One');
+  String name;
+  RealOneField(this.name) {}
+ void makeOne() {
+    print(name);
   }
 }
 
 class RealTwoField implements TwoField {
-  makeTwo() {
+ void makeTwo() {
     print('make Two');
   }
 }
