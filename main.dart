@@ -1,10 +1,29 @@
-import 'AbstractFactory.dart';
-import 'RealFactory_1.dart'; 
 void main() {
-RealFactory_1 realFactory = RealFactory_1();
- final oneField = realFactory.createOneField("1111");
-  final twoField = realFactory.createTwoField();
+final list = Linkedlist();
+  list.addNode(22);
+  list.addNode(33);
+  print(list.tail!.data);
+  
+}
 
-oneField.makeOne();
-  twoField.makeTwo();
+class Node {
+  final data;
+  Node? next;
+  Node(this.data) {}
+}
+
+class Linkedlist {
+  Node? head;
+  Node? tail;
+
+  void addNode(int data) {
+    Node newNode = Node(data);
+    if (head == null) {
+      head = newNode;
+      tail = head;
+    } else {
+      tail!.next = newNode;
+      tail = newNode;
+    }
+  }
 }
