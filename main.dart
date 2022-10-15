@@ -1,29 +1,22 @@
 void main() {
-final list = Linkedlist();
-  list.addNode(22);
-  list.addNode(33);
-  print(list.tail!.data);
-  
+  final list = <int>[4, 65, 74, 2, 6];
+  final sortList = sort(list);
+  print(sortList);
 }
 
-class Node {
-  final data;
-  Node? next;
-  Node(this.data) {}
-}
-
-class Linkedlist {
-  Node? head;
-  Node? tail;
-
-  void addNode(int data) {
-    Node newNode = Node(data);
-    if (head == null) {
-      head = newNode;
-      tail = head;
-    } else {
-      tail!.next = newNode;
-      tail = newNode;
+List<int> sort(List<int> list) {
+  final count = list.length;
+  bool flag = true;
+  while (flag) {
+    flag = false;
+    for (int i = 1; i < count; i++) {
+      if (list[i] < list[i - 1]) {
+        int num = list[i];
+        list[i] = list[i - 1];
+        list[i - 1] = num;
+        flag = true;
+      }
     }
   }
+  return list;
 }
